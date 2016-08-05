@@ -2,6 +2,8 @@
 	"name": "to-do-list",
 	"version": "0.1.0",
 	"dependencies": {
-		"markdown": "~0.4"
+		"passport": "~0.3",
+		"passport-local": "~0.1",
+		"ejs": "~1"
 	}
 }
