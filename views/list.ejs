@@ -1,7 +1,7 @@
 <h1>My to-do list</h1>
 <ul>
-	<% todolist.forEach(function(task) { %>
-	<li><%= task %></li>
+	<% todolist.forEach(function(task, index) { %>
+	<li><a href="/delete/<%= index %>">X</a> <%= task %></li>
 	<% }); %>
 </ul>
 

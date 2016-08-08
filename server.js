@@ -35,6 +35,12 @@ app.get('/', function(req, res) {
   		req.session.todolist.push(task);
   	}
   res.redirect('/');
+})
+
+// Delete task
+.get('/delete/:id', function(req, res) {
+  req.session.todolist.splice(req.params.id, 1);
+  res.redirect('/');
 });
 
 app.listen(8080);
