@@ -24,7 +24,7 @@ app.set('views', __dirname + '/views')
 
 // Display list
 app.get('/', function(req, res) {
-  console.log(req.session.todolist);
+  // console.log(req.session.todolist);
   res.render('list.ejs', {todolist: req.session.todolist});
 })
 
@@ -38,8 +38,14 @@ app.get('/', function(req, res) {
 })
 
 // Delete task
-.get('/delete/:id', function(req, res) {
-  req.session.todolist.splice(req.params.id, 1);
+.post('/delete/', function(req, res){
+  // console.log(req.body);
+  var checklist = req.body;
+  for(var index in checklist) {
+      if(checklist[index] == 'on') {
+        req.session.todolist.splice(index, 1);
+      }
+  };
   res.redirect('/');
 });
 

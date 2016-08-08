@@ -1,9 +1,12 @@
 <h1>My to-do list</h1>
-<ul>
-	<% todolist.forEach(function(task, index) { %>
-	<li><a href="/delete/<%= index %>">X</a> <%= task %></li>
-	<% }); %>
-</ul>
+<form action="/delete/" method="post" onChange="this.submit()">
+	<ul>
+		<% todolist.forEach(function(task, index) { %>
+		<li><input type="checkbox" name="<%= index %>"> <%= task %></li>
+		<% }); %>
+	</ul>	
+</form>
+
 
 <p>Add a task:</p>
 <form action="/add/" method="post">
