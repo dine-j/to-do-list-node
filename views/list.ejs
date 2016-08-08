@@ -1,15 +1,27 @@
-<h1>My to-do list</h1>
-<form action="/delete/" method="post" onChange="this.submit()">
-	<ul>
-		<% todolist.forEach(function(task, index) { %>
-		<li><input type="checkbox" name="<%= index %>"> <%= task %></li>
-		<% }); %>
-	</ul>	
-</form>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My to-do list</title>
+		<style type="text/css">
+			.tasks-list {
+				list-style-type: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>My to-do list</h1>
+		<form action="/delete/" method="post" onChange="this.submit()">
+			<ul class="tasks-list">
+				<% todolist.forEach(function(task, index) { %>
+				<li><input type="checkbox" name="<%= index %>"> <%= task %></li>
+				<% }); %>
+			</ul>	
+		</form>
 
-
-<p>Add a task:</p>
-<form action="/add/" method="post">
-	<input name="task" type="text"></input>
-	<button type="button">Confirm</button>	
-</form>
+		<p>Add a task:</p>
+		<form action="/add/" method="post">
+			<input name="task" type="text"></input>
+			<button type="button">Confirm</button>	
+		</form>
+	</body>
+</html>
