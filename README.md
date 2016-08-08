@@ -5,7 +5,7 @@ Node.js exercise from OpenClassrooms.com
 ## Presentation
 
 Simple web app where the visitor can add and remove tasks.
-Tasks are added via the form and removed by clicking on the crosses.
+Tasks are added via the form and removed by ticking th checkboxes. Tasks can also be modified.
 The list is stored in the visitor's session.
 
 ## Aims
