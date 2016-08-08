@@ -1,35 +1,40 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('cookie-session');
-//var passport = require('passport');
-//var strategy = require('passport-local').Strategy;
 
 // Create new Express application.
 var app = express();
 
 // Use sessions
-app.use(session({secret: 'todotposecret'}))
+app.use(session({secret: 'saveit'}))
 
-.use(function(req, resm next) {
+.use(function(req, res, next) {
   if(typeof(req.session.todolist) == 'undefined') {
     req.session.todolist = [];
   }
   next();
 });
 
+var parser = bodyParser.urlencoded({extended: false});
+
+app.use(parser);
+
 // Tell express to use the folder /views for the views
 app.set('views', __dirname + '/views')
 
 // Display list
 app.get('/', function(req, res) {
+  console.log(req.session.todolist);
   res.render('list.ejs', {todolist: req.session.todolist});
-});
-
-app.use(bodyParser.urlencoded({extended: false;}));
+})
 
 // Get input
-app.post('/add', function(req, res)) {
-  res.send
-};
+.post('/add/', function(req, res) {
+	var task = req.body.task;
+  if(task != '') { 
+  		req.session.todolist.push(task);
+  	}
+  res.redirect('/');
+});
 
 app.listen(8080);

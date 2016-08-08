@@ -1,6 +1,12 @@
 <h1>My to-do list</h1>
-
+<ul>
+	<% todolist.forEach(function(task) { %>
+	<li><%= task %></li>
+	<% }); %>
+</ul>
 
 <p>Add a task:</p>
-<input action="/add" name="task" type="text"></input>
-<button type="button">Confirm</button>
+<form action="/add/" method="post">
+	<input name="task" type="text"></input>
+	<button type="button">Confirm</button>	
+</form>
