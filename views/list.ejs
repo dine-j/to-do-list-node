@@ -6,14 +6,18 @@
 			.tasks-list {
 				list-style-type: none;
 			}
+			.list-element {
+				border: none;
+				font-size: 12px;
+			}
 		</style>
 	</head>
 	<body>
 		<h1>My to-do list</h1>
-		<form action="/delete/" method="post" onChange="this.submit()">
+		<form action="/modify/" method="post" name="taskForm" onChange="this.submit()">
 			<ul class="tasks-list">
 				<% todolist.forEach(function(task, index) { %>
-				<li><input type="checkbox" name="<%= index %>"> <%= task %></li>
+				<li><input type="checkbox" name="<%= index %>"> <input class="list-element" type="text" name="<%= index %>" value="<%= task %>"></input></li>
 				<% }); %>
 			</ul>	
 		</form>
