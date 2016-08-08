@@ -44,16 +44,17 @@ app.get('/', function(req, res) {
   // console.log(checklist[1]);
   for(var index in checklist) {
       var task = checklist[index];
-      // Change label
-      if(typeof(task) == 'string' && req.session.todolist[index] != task) {
-        req.session.todolist[index] = task; 
-      }
       // Delete
       if(task[0] == 'on') {
         // console.log('maybe');
         // console.log(index);
         req.session.todolist.splice(index, 1);
         // console.log(req.session.todolist);
+        break;
+      }
+      // Change label
+      if(typeof(task) == 'string' && req.session.todolist[index] != task) {
+        req.session.todolist[index] = task; 
       }
   };
   res.redirect('/');
