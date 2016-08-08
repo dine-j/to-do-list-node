@@ -2,12 +2,8 @@
 	"name": "to-do-list",
 	"version": "0.1.0",
 	"dependencies": {
-		"passport": "~0.3",
-		"passport-local": "~0.1",
 		"ejs": "~1",
-		"formidable": "~1.0",
 		"body-parser": "~1.15",
 		"cookie-session": "~2.0",
-		"querystring": "~0.2"
 	}
 }
