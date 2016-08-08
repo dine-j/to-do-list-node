@@ -24,7 +24,6 @@ app.set('views', __dirname + '/views')
 
 // Display list
 app.get('/', function(req, res) {
-  // console.log(req.session.todolist);
   res.render('list.ejs', {todolist: req.session.todolist});
 })
 
@@ -39,17 +38,12 @@ app.get('/', function(req, res) {
 
 // Modify task
 .post('/modify/', function(req, res){
-  // console.log(req.body);
   var checklist = req.body;
-  // console.log(checklist[1]);
   for(var index in checklist) {
       var task = checklist[index];
       // Delete
       if(task[0] == 'on') {
-        // console.log('maybe');
-        // console.log(index);
         req.session.todolist.splice(index, 1);
-        // console.log(req.session.todolist);
         break;
       }
       // Change label
